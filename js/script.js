@@ -51,8 +51,6 @@ function countUp () {
                 counter.innerText = target;
             }
 
-
-
         };
         updateCounter();
     });
@@ -61,3 +59,22 @@ function countUp () {
 function reset() {
     counters.forEach((counter) => counter.innerHTML = '0');
 }
+
+(function () {
+    var words = [
+        "Fly",
+        "Soar",
+        "Glide",
+        "Fly",
+        "Go"
+      ],
+      i = 0;
+    setInterval(function () {
+      $("#dynamicWords").fadeOut(function () {
+        $(this)
+          .html(words[(i = (i + 1) % words.length)])
+          .fadeIn();
+      });
+    }, 2000);
+})();
+  
