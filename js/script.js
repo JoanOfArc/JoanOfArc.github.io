@@ -59,6 +59,7 @@ function countUp () {
 function reset() {
     counters.forEach((counter) => counter.innerHTML = '0');
 }
+/* Function for dynamic word changing */
 
 (function () {
     var words = [
@@ -81,17 +82,43 @@ function reset() {
 /* Animations on scroll */
 
 const observer = new IntersectionObserver(entries => {
-    // Loop over the entries
-    entries.forEach(entry => {
-      // If the element is visible
-      if (entry.isIntersecting) {
-        // Add the animation class
-        entry.target.classList.add('image-animation');
-      }
-    });
+  // Loop over the entries
+  entries.forEach(entry => {
+    // If the element is visible
+    if (entry.isIntersecting) {
+      // Add the animation class
+      entry.target.classList.add('image-animation');
+    }
   });
+});
   
-  const viewbox = document.querySelectorAll('.section-content');
+const viewbox = document.querySelectorAll('.section-content');
   viewbox.forEach(image => {
     observer.observe(image);
+});
+
+
+/* JQuery */
+$(document).ready(function() {
+  
+  /* Every time the window is scrolled ... */
+  $(window).scroll( function(){
+  
+    /* Check the location of each desired element */
+    $('.hideme').each( function(i){
+        
+        var bottom_of_object = $(this).offset().top + $(this).outerHeight();
+        var bottom_of_window = $(window).scrollTop() + $(window).height();
+        
+        /* If the object is completely visible in the window, fade it it */
+        if( bottom_of_window > bottom_of_object ){
+            
+            $(this).animate({'opacity':'1'},500);
+                
+        }
+        
+    }); 
+  
   });
+  
+});

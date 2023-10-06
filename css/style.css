@@ -109,18 +109,13 @@ section {
     text-transform: uppercase;
 }
 
-.section-a {
-    background-color: #acacac;
-    z-index: -2;
-} 
 
 /* Video Background */
 #background-video {
     height: 100vh;
-    width: 65%;
+    width: 100vw;
     object-fit: cover;
     position: fixed;
-    margin-left: auto;
     left: 0;
     right: 0;
     top: 0;
@@ -128,13 +123,6 @@ section {
     z-index: -1;
 }
 
-@media (max-width: 1200px ) {
-    #background-video {
-        height: auto;
-        margin: 0 auto;
-        width: 100%;
-    }
-}
 
 .section-b {
     background-image: url('../img/a320neo.webp');
@@ -519,6 +507,10 @@ footer p {
     animation: fadeIn 2s ease-in-out;
 }
 
+.hideme {
+    opacity: 0;
+}
+
 .section-inner span {
     align-items: center;
     display: flex;
@@ -653,8 +645,30 @@ footer p {
         font-size: 75px;
     }
 
+    .section-inner-center h2 {
+        font-size: 62px;
+    }
+
     .section-inner-center p {
         font-size: 36px;
+    }
+
+    .section-b-sub {
+        padding-top: 60px;
+    }
+
+    .section-main {
+        grid-template-columns: 0fr;
+        margin: 0 auto;
+        width: auto;
+    }
+
+    .img-content h2 {
+        font-size: 32px;
+    }
+
+    .img-content img {
+        width: 250px;
     }
 
     .stats {
@@ -679,6 +693,17 @@ footer p {
     .section-inner-center p {
         font-size: 24px;
     }
+
+    /* Hero section on mobile */
+    .section-a .hero {
+        height: 58vh;
+    }
+
+    #background-video {
+        height: 40vh;
+        object-fit: contain;
+    }
+
 
     /* Stats section */
     .stats {
